@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SuperHeroes.Models;
 
 namespace SuperHeroes.Controllers
 {
     public class HeroesNHeroinesController : Controller
     {
+        ApplicationDbContext db;
+        public HeroesNHeroinesController()
+        {
+            db = new ApplicationDbContext();
+        }
         // GET: HeroesNHeroines
         public ActionResult Index()
         {
@@ -28,12 +34,13 @@ namespace SuperHeroes.Controllers
 
         // POST: HeroesNHeroines/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(HeroesNHeroines HeroOrHeroine)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                db.HeroesNHeroines.Add(HeroOrHeroine);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

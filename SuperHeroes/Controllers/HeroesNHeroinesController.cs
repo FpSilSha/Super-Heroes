@@ -82,7 +82,7 @@ namespace SuperHeroes.Controllers
         public ActionResult Delete(int id)
         {
             HeroesNHeroines beingToDelete = db.HeroesNHeroines.Where(h => h.Id == id).Single();
-            return View();
+            return View(beingToDelete);
         }
 
         // POST: HeroesNHeroines/Delete/5

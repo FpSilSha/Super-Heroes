@@ -56,7 +56,7 @@ namespace SuperHeroes.Controllers
         }
 
         
-        public ActionResult Edit(int id)
+        public ActionResult Update(int id)
         {
             var heroOrHeroine = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
             return View(heroOrHeroine);
@@ -64,7 +64,7 @@ namespace SuperHeroes.Controllers
 
         
         [HttpPost]
-        public ActionResult Edit(HeroesNHeroines HeroOrHeroine)
+        public ActionResult Update(HeroesNHeroines HeroOrHeroine)
         {
             try
             {

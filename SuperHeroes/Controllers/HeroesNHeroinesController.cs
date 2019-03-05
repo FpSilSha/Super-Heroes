@@ -52,17 +52,24 @@ namespace SuperHeroes.Controllers
         // GET: HeroesNHeroines/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var heroOrHeroine = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
+            return View(heroOrHeroine);
         }
 
         // POST: HeroesNHeroines/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, HeroesNHeroines HeroOrHeroine)
+        public ActionResult Edit(HeroesNHeroines HeroOrHeroine)
         {
             try
             {
-                // TODO: Add update logic here
 
+                var superName = HeroOrHeroine.SuperName;
+                var alter_Ego = HeroOrHeroine.Alter_Ego_Name;
+                var primary_Ability = HeroOrHeroine.Primary_SuperAbility;
+                var secondary_Ability = HeroOrHeroine.Secondary_SuperAbility;
+                var catch_Phrase = HeroOrHeroine.CatchPhrase;
+                // TODO: Add update logic here
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -75,7 +82,7 @@ namespace SuperHeroes.Controllers
         public ActionResult Delete(int id)
         {
             HeroesNHeroines beingToDelete = db.HeroesNHeroines.Where(h => h.Id == id).Single();
-            return View(beingToDelete);
+            return View();
         }
 
         // POST: HeroesNHeroines/Delete/5

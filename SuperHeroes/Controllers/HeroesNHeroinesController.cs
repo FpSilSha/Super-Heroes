@@ -94,6 +94,7 @@ namespace SuperHeroes.Controllers
         {
             try
             {
+                HeroOrHeroine = db.HeroesNHeroines.Where(h => h.Id == HeroOrHeroine.Id).Single();
                 db.HeroesNHeroines.Remove(HeroOrHeroine);
                 db.SaveChanges();
                 return RedirectToAction("Index");

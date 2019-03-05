@@ -17,7 +17,12 @@ namespace SuperHeroes.Controllers
         // GET: HeroesNHeroines
         public ActionResult Index()
         {
-            return View();
+            List<HeroesNHeroines> heroesNHeroinesList = new List<HeroesNHeroines>();
+            foreach(var heroOrHeroine in db.HeroesNHeroines)
+            {
+                heroesNHeroinesList.Add(heroOrHeroine);
+            }
+            return View(heroesNHeroinesList);
         }
 
         // GET: HeroesNHeroines/Details/5

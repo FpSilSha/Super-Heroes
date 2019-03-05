@@ -256,6 +256,7 @@
     <Content Include="Views\HeroesNHeroines\Read.cshtml" />
     <Content Include="Views\HeroesNHeroines\Update.cshtml" />
     <Content Include="Views\HeroesNHeroines\Delete.cshtml" />
+    <Content Include="Views\HeroesNHeroines\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

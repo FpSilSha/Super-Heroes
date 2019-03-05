@@ -26,7 +26,7 @@ namespace SuperHeroes.Controllers
         }
 
         
-        public ActionResult Details(int id)
+        public ActionResult Read(int id)
         {
             var beingToView = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
             return View(beingToView);

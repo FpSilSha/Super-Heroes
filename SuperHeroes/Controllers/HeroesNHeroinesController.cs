@@ -23,7 +23,8 @@ namespace SuperHeroes.Controllers
         // GET: HeroesNHeroines/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var beingToView = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
+            return View(beingToView);
         }
 
         // GET: HeroesNHeroines/Create

@@ -38,7 +38,7 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+               
                 db.HeroesNHeroines.Add(HeroOrHeroine);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -57,7 +57,7 @@ namespace SuperHeroes.Controllers
 
         // POST: HeroesNHeroines/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, HeroesNHeroines HeroOrHeroine)
         {
             try
             {
@@ -74,17 +74,18 @@ namespace SuperHeroes.Controllers
         // GET: HeroesNHeroines/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            HeroesNHeroines beingToDelete = db.HeroesNHeroines.Where(h => h.Id == id).Single();
+            return View(beingToDelete);
         }
 
         // POST: HeroesNHeroines/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(HeroesNHeroines HeroOrHeroine)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                db.HeroesNHeroines.Remove(HeroOrHeroine);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

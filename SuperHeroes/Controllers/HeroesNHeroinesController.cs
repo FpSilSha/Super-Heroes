@@ -14,7 +14,7 @@ namespace SuperHeroes.Controllers
         {
             db = new ApplicationDbContext();
         }
-        // GET: HeroesNHeroines
+        
         public ActionResult Index()
         {
             List<HeroesNHeroines> heroesNHeroinesList = new List<HeroesNHeroines>();
@@ -25,20 +25,20 @@ namespace SuperHeroes.Controllers
             return View(heroesNHeroinesList);
         }
 
-        // GET: HeroesNHeroines/Details/5
+        
         public ActionResult Details(int id)
         {
             var beingToView = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
             return View(beingToView);
         }
 
-        // GET: HeroesNHeroines/Create
+        
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HeroesNHeroines/Create
+        
         [HttpPost]
         public ActionResult Create(HeroesNHeroines HeroOrHeroine)
         {
@@ -55,26 +55,25 @@ namespace SuperHeroes.Controllers
             }
         }
 
-        // GET: HeroesNHeroines/Edit/5
+        
         public ActionResult Edit(int id)
         {
             var heroOrHeroine = db.HeroesNHeroines.Where(h => h.Id == id).FirstOrDefault();
             return View(heroOrHeroine);
         }
 
-        // POST: HeroesNHeroines/Edit/5
+        
         [HttpPost]
         public ActionResult Edit(HeroesNHeroines HeroOrHeroine)
         {
             try
             {
-
-                var superName = HeroOrHeroine.SuperName;
-                var alter_Ego = HeroOrHeroine.Alter_Ego_Name;
-                var primary_Ability = HeroOrHeroine.Primary_SuperAbility;
-                var secondary_Ability = HeroOrHeroine.Secondary_SuperAbility;
-                var catch_Phrase = HeroOrHeroine.CatchPhrase;
-                // TODO: Add update logic here
+                var beingToEdit = db.HeroesNHeroines.Where(h => h.Id == HeroOrHeroine.Id).FirstOrDefault();
+                beingToEdit.SuperName = HeroOrHeroine.SuperName;
+                beingToEdit.Alter_Ego_Name = HeroOrHeroine.Alter_Ego_Name;
+                beingToEdit.Primary_SuperAbility = HeroOrHeroine.Primary_SuperAbility;
+                beingToEdit.Secondary_SuperAbility = HeroOrHeroine.Secondary_SuperAbility;
+                beingToEdit.CatchPhrase = HeroOrHeroine.CatchPhrase;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -84,14 +83,12 @@ namespace SuperHeroes.Controllers
             }
         }
 
-        // GET: HeroesNHeroines/Delete/5
         public ActionResult Delete(int id)
         {
-            HeroesNHeroines beingToDelete = db.HeroesNHeroines.Where(h => h.Id == id).Single();
+            var beingToDelete = db.HeroesNHeroines.Where(h => h.Id == id).Single();
             return View(beingToDelete);
         }
 
-        // POST: HeroesNHeroines/Delete/5
         [HttpPost]
         public ActionResult Delete(HeroesNHeroines HeroOrHeroine)
         {

@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201903041609488_HeroesNHeroines.Designer.cs">
       <DependentUpon>201903041609488_HeroesNHeroines.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903051310348_Super_Heroes.cs" />
+    <Compile Include="Migrations\201903051310348_Super_Heroes.Designer.cs">
+      <DependentUpon>201903051310348_Super_Heroes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HeroesNHeroines.cs" />
@@ -272,6 +276,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903041609488_HeroesNHeroines.resx">
       <DependentUpon>201903041609488_HeroesNHeroines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051310348_Super_Heroes.resx">
+      <DependentUpon>201903051310348_Super_Heroes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
